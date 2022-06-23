@@ -70,10 +70,10 @@ function getUserGridSize(){
     let gridSize;
 
     do{
-        gridSize = prompt("Please enter a grid size between 1 and 100")
-    }while(gridSize < 1 || gridSize > 100)
+        gridSize = prompt("Please enter a grid size between 1 and 100");
+    }while((gridSize < 1 || gridSize > 100) && (gridSize != null))
 
-    return gridSize;
+    return (gridSize == null) ? 16 : gridSize;
 }
 
 createGrid(16); // create default grid of 16x16
