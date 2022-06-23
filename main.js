@@ -34,7 +34,7 @@ function addGridElements(grid, gridSize){
 
 function deleteGrid(){
     const etchASketch = document.querySelector('#etch-a-sketch');
-    
+
     const grid = document.querySelector('#grid');
     
     etchASketch.removeChild(grid);
@@ -49,6 +49,10 @@ function initGridElement(gridElement, row, col){
 
 function addHoverToGridElement(gridElement){
     gridElement.addEventListener('mouseover', () => {
+        if(gridElement.style.backgroundColor == 'transparent'){
+            gridElement.style.opacity = '0.0';
+        }
+        gridElement.style.opacity = `${(+(gridElement.style.opacity) + 0.1)}`;
         gridElement.style.backgroundColor = 'black';
     });
 }
