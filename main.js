@@ -7,10 +7,15 @@ function createGrid(gridSize){
 
 // set size of grid elements to 25px for now until i figure out how to make it scale
 function initGrid(grid, gridSize){
+    let sideLength = 800;
+
     grid.setAttribute('id', 'grid');
     grid.style.display = 'grid';
-    grid.style.gridTemplateRows = `repeat(${gridSize}, 25px)`;
-    grid.style.gridTemplateColumns = `repeat(${gridSize}, 25px)`;
+    grid.style.height = `${sideLength}px`;
+    grid.style.width = `${sideLength}px`;
+    grid.style.border = '24px solid red';
+    grid.style.gridTemplateRows = `repeat(${gridSize}, ${sideLength/gridSize}px)`;
+    grid.style.gridTemplateColumns = `repeat(${gridSize}, ${sideLength/gridSize}px)`;
 }
 
 function addGridElements(grid, gridSize){
@@ -22,6 +27,11 @@ function addGridElements(grid, gridSize){
             grid.appendChild(gridElement);
         }
     }
+}
+
+function deleteGrid(){
+    const grid = document.querySelector('#grid');
+    document.body.removeChild(grid);
 }
 
 // id's are set to row#-col# for selection
@@ -37,4 +47,24 @@ function addHoverToGridElement(gridElement){
     });
 }
 
-createGrid(16);
+function initNewGridButton(){
+    const newGridButton = document.querySelector('#new-grid-button');
+    newGridButton.addEventListener('click', () => {
+        let gridSize = getUserGridSize();
+        deleteGrid();
+        createGrid(gridSize);
+    });
+}
+
+function getUserGridSize(){
+    let gridSize;
+
+    do{
+        gridSize = prompt("Please enter a grid size between 1 and 100")
+    }while(gridSize < 1 || gridSize > 100)
+
+    return gridSize;
+}
+
+createGrid(16); // create default grid of 16x16
+initNewGridButton();
