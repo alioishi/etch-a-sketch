@@ -16,7 +16,8 @@ function initGrid(grid, gridSize){
     grid.style.display = 'grid';
     grid.style.height = `${sideLength}px`;
     grid.style.width = `${sideLength}px`;
-    grid.style.border = '24px solid red';
+    grid.style.border= '24px solid red';
+    grid.style.borderRadius= '48px';
     grid.style.gridTemplateRows = `repeat(${gridSize}, ${sideLength/gridSize}px)`;
     grid.style.gridTemplateColumns = `repeat(${gridSize}, ${sideLength/gridSize}px)`;
 }
