@@ -34,9 +34,6 @@ function initGridElement(gridElement, row, col){
 function addHoverToGridElement(gridElement){
     gridElement.addEventListener('mouseover', () => {
         gridElement.style.backgroundColor = 'black';
-        setTimeout(function() {
-            gridElement.style.backgroundColor = "white";
-          }, 250);
     });
 }
 
