@@ -1,8 +1,11 @@
 function createGrid(gridSize){
+    const etchASketch = document.querySelector('#etch-a-sketch');
+
     const grid = document.createElement('div');
     initGrid(grid, gridSize);
     addGridElements(grid, gridSize)
-    document.body.appendChild(grid);
+    
+    etchASketch.appendChild(grid);
 }
 
 // set size of grid elements to 25px for now until i figure out how to make it scale
@@ -30,8 +33,11 @@ function addGridElements(grid, gridSize){
 }
 
 function deleteGrid(){
+    const etchASketch = document.querySelector('#etch-a-sketch');
+    
     const grid = document.querySelector('#grid');
-    document.body.removeChild(grid);
+    
+    etchASketch.removeChild(grid);
 }
 
 // id's are set to row#-col# for selection
